@@ -6,11 +6,12 @@ import YoutubeMusicIcon from "@/components/assets/icons/youtube-music"
 import AppleMusicIcon from "@/components/assets/icons/apple-music"
 import { ConnectButton } from "./ConnectButton"
 
+// src/components/home/ConnectButtons.tsx
 const buttons = [
-    { icon: SpotifyIcon, label: 'Spotify' },
-    { icon: YoutubeMusicIcon, label: 'Youtube' },
-    { icon: AppleMusicIcon, label: 'Apple' }
-] as const
+    { icon: SpotifyIcon, label: 'Spotify', color: '#1DB954' },
+    { icon: YoutubeMusicIcon, label: 'Youtube', color: '#FF0000' },
+    { icon: AppleMusicIcon, label: 'Apple', color: '#FA57C1' }
+] as const;
 
 interface ConnectButtonsProps {
     variants: {
