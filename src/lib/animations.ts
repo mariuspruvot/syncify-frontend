@@ -34,7 +34,9 @@ export const homeAnimations = {
             delay: index * 0.1,
             ease: [0.2, 0.4, 0.8, 0.8]
         }
-    })
+    }),
+
+
 }
 
 export interface HomeVariants {
