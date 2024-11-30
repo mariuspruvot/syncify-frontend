@@ -42,8 +42,9 @@ export const BetaButton = () => {
             >
                 <Badge
                     variant="secondary"
-                    className="text-xs bg-primary/5 hover:bg-primary/10 text-primary px-3 py-1 rounded-full font-medium cursor-pointer"
+                    className="text-xs bg-primary/5 hover:bg-primary/10 text-primary px-3 py-1 rounded-full font-medium  cursor-none"
                     onClick={handleClick}
+                    role="button"
                 >
                     Beta
                 </Badge>
