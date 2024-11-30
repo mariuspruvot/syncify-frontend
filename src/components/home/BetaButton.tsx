@@ -1,24 +1,11 @@
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { cn } from "@/lib/utils"
+import {bounceAnimation} from "@/components/home/animations/BounceAnimations";
 
 export const BetaButton = () => {
     const [isAnimating, setIsAnimating] = useState(false)
-
-    const bounceAnimation = {
-        initial: { y: 0, rotate: 0 },
-        animate: {
-            y: [0, -20, 0],
-            rotate: [0, -10, 10, -10, 0],
-            transition: {
-                duration: 1,
-                times: [0, 0.4, 1],
-                rotate: {
-                    times: [0, 0.2, 0.5, 0.8, 1]
-                }
-            }
-        }
-    }
 
     const handleClick = () => {
         if (!isAnimating) {
@@ -26,24 +13,39 @@ export const BetaButton = () => {
             setTimeout(() => setIsAnimating(false), 1000)
         }
     }
-
     return (
         <motion.div
-            className="absolute top-6 right-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+                delay: 2.5,
+                duration: 1.5,
+                ease: "easeOut"
+            }}
         >
             <motion.span
-                style={{ display: 'inline-block' }}
+                className="inline-block"
                 variants={bounceAnimation}
                 initial="initial"
                 animate={isAnimating ? "animate" : "initial"}
             >
                 <Badge
                     variant="secondary"
-                    className="text-xs bg-primary/5 hover:bg-primary/10 text-primary px-3 py-1 rounded-full font-medium cursor-pointer"
+                    className={cn(
+                        // Base styles
+                        "cursor-none rounded-full",
+                        // Text styles
+                        "text-xs sm:text-sm text-primary font-medium",
+                        // Padding
+                        "px-2 py-1 sm:px-3 sm:py-1",
+                        // Background
+                        "bg-primary/5 hover:bg-spotify-green/30",
+                        // Transitions
+                        "transition-colors duration-600 ease"
+                    )}
                     onClick={handleClick}
+                    role="button"
+                    aria-label="Beta"
                 >
                     Beta
                 </Badge>
