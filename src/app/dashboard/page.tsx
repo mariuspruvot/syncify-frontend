@@ -1,52 +1,45 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { CustomCard } from "@/components/dashboard/custom-card";
+import { ProfileCard } from "@/components/dashboard/ProfileCard";
+import { ModeToggle } from "@/components/themes/mode-toggle";
 
-export default function Page() {
+export default function Dashboard() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-        </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+    <div className="min-h-screen w-full bg-background">
+      {/* Navigation */}
+      <div className="fixed top-0 left-0 right-0 bg-background z-50 h-14 sm:h-16">
+        <div className="w-full h-full flex items-center px-8 ">
+          <ModeToggle />
         </div>
-      </SidebarInset>
-    </SidebarProvider>
+      </div>
+
+      {/* Main Content */}
+      <div className="w-full pt-16 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-4 ">
+          {/* Sidebar */}
+          <div className="col-span-1 md:col-span-3 h-[200px] md:h-[calc(100vh-7rem)]">
+            <ProfileCard />
+          </div>
+
+          {/* Main Area */}
+          <div className="col-span-1 md:col-span-9 grid grid-cols-1 gap-6 h-full">
+            {/* Top Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
+              <CustomCard title="Statistics" description="Your listening stats">
+                Stats content
+              </CustomCard>
+
+              <CustomCard title="Playlists" description="Your recent playlists">
+                Playlists content
+              </CustomCard>
+            </div>
+
+            {/* Bottom Card */}
+            <CustomCard title="Activity" description="Your recent activity">
+              Activity content
+            </CustomCard>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

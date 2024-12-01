@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { buttonAnimations } from "@/components/home/animations/variants";
-import { styles } from "@/components/home/animations/styles";
+import { buttonAnimations } from "@/components/homepage/animations/variants";
+import { styles } from "@/components/homepage/animations/styles";
 
 export const BetaButton = () => {
   const [isAnimating, setIsAnimating] = useState(false);

@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Hero } from "./Hero";
 import { ConnectButtons } from "./ConnectButtons";
 import { homeAnimations } from "@/lib/animations";
-import { BetaButton } from "@/components/home/BetaButton";
+import { BetaButton } from "@/components/homepage/BetaButton";
 import { Cursor } from "@/components/cursor/Cursor";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
-import { HomePageModeToggle } from "@/components/mode-toggle";
+import { HomePageModeToggle } from "@/components/themes/mode-toggle";
 
 const HomePage = () => {
   const isMobile = useIsMobile();
