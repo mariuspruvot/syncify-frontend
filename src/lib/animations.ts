@@ -30,7 +30,7 @@ export const homeAnimations = {
     rotate: Math.random() * 720 - 360,
     opacity: 0,
     transition: {
-      duration: 2,
+      duration: 2.5,
       delay: index * 0.1,
       ease: [0.2, 0.4, 0.8, 0.8],
     },

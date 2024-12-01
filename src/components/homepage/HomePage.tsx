@@ -52,15 +52,11 @@ const HomePage = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center space-y-4 sm:space-y-6"
-          variants={homeAnimations.container}
-          initial="hidden"
-          animate="show"
-        >
-          <Hero variants={homeAnimations.item} />
-          <ConnectButtons variants={homeAnimations.item} />
-        </motion.div>
+        <div className="text-center space-y-4 sm:space-y-6">
+          <Hero variants={homeAnimations.container} />
+
+          <ConnectButtons />
+        </div>
       </div>
     </div>
   );

@@ -1,32 +1,23 @@
 "use client";
-import { motion, Variant } from "motion/react";
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { homeAnimations } from "@/lib/animations";
 
 interface ConnectButtonProps {
   icon: React.ElementType;
   label: string;
   color: string;
-  variants: Variant;
 }
 
 export const ConnectButton = ({
   icon: Icon,
   label,
   color,
-  variants,
 }: ConnectButtonProps) => {
-  // Animation configurations
   const hoverAnimation = {
     scale: 1.05,
     rotate: [-1, 1, -1, 0],
-    transition: {
-      rotate: {
-        repeat: 0,
-        duration: 0.5,
-      },
-      scale: { duration: 0.2 },
-    },
+    transition: { rotate: { duration: 0.5 }, scale: { duration: 0.2 } },
   };
 
   // Style configurations
@@ -47,21 +38,17 @@ export const ConnectButton = ({
 
   return (
     <motion.div
-      variants={variants}
+      variants={homeAnimations.item} // Variantes pour les enfants
       whileHover={hoverAnimation}
       whileTap={{ scale: 0.95 }}
     >
       <Button
         size="lg"
         variant="outline"
-        className={cn(
-          "gap-2 w-40",
-          "transition-colors duration-300",
-          "cursor-none",
-        )}
+        className="gap-2 w-40 transition-colors duration-300"
         style={buttonStyles}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseLeave={handleMouseLeave} // Ajout des handlers
       >
         <Icon className="w-5 h-5" />
         {label}
