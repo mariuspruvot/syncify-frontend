@@ -88,18 +88,18 @@ export const Hero = ({ variants }: HeroProps) => {
           "text-center",
         )}
       >
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 2.5,
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            className="text-primary inline-block"
-          >
-            {HERO_TEXT.subtitle}
-          </motion.span>
+        <motion.span
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 2.5,
+            duration: 0.5,
+            ease: "easeOut",
+          }}
+          className="text-primary inline-block"
+        >
+          {HERO_TEXT.subtitle}
+        </motion.span>
 
         <motion.span
           initial={{ opacity: 0, y: -30 }}
