@@ -1,6 +1,6 @@
 // src/lib/animations.ts
 
-import { Variant } from "motion/react";
+import { Variant, Variants } from "framer-motion";
 
 export const homeAnimations = {
   container: {
@@ -37,7 +37,7 @@ export const homeAnimations = {
   }),
 };
 
-export interface HomeVariants {
+export interface HomeVariants extends Variants {
   hidden: Variant;
   show: Variant;
 }
