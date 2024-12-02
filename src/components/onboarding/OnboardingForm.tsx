@@ -19,9 +19,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { router } from "next/client";
+
+import { useRouter } from "next/navigation";
 
 const OnboardingForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     bio: "",
@@ -78,7 +80,7 @@ const OnboardingForm = () => {
         // await supabase.from('profiles').upsert({ ... });
 
         // Attendre avant de rediriger
-        await router.push("/dashboard");
+        router.push("/dashboard");
       } catch (error) {
         console.error("Error submitting form:", error);
       }
