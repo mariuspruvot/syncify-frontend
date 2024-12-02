@@ -45,7 +45,7 @@ export const ConnectButton = ({
       <Button
         size="lg"
         variant="outline"
-        className="gap-2 w-40 transition-colors duration-300"
+        className="gap-2 w-40 transition-colors duration-300 cursor-none"
         style={buttonStyles}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave} // Ajout des handlers
